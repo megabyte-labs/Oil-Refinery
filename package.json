@@ -1,5 +1,118 @@
 {
+  "private": true,
+  "name": "@mblabs/app-oil-refinery",
+  "version": "0.0.1",
+  "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
+  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
+  "homepage": "https://megabyte.space",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/Oil-Refinery.git"
+  },
+  "bugs": {
+    "email": "help@megabyte.space",
+    "url": "https://gitlab.com/megabyte-labs/templates/angular-app/-/issues"
+  },
+  "type": "module",
+  "main": "dist/main.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "ng build",
+    "help": "task --list",
+    "ng": "ng",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "ng serve",
+    "test": "ng test",
+    "test:cov": "ng test --coverage",
+    "watch": "ng build --watch --configuration development"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
+  },
+  "typings": "dist/main.d.ts",
+  "dependencies": {
+    "@angular/animations": "~13.0.0",
+    "@angular/common": "~13.0.0",
+    "@angular/compiler": "~13.0.0",
+    "@angular/core": "~13.0.0",
+    "@angular/forms": "~13.0.0",
+    "@angular/platform-browser": "~13.0.0",
+    "@angular/platform-browser-dynamic": "~13.0.0",
+    "@angular/router": "~13.0.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "rxjs": "~7.4.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "optionalDependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.0",
+    "signale": "^1.4.0",
+    "string-break": "^1.2.0"
+  },
+  "devDependencies": {
+    "@angular-builders/jest": "^13.0.0",
+    "@angular-devkit/build-angular": "~13.0.3",
+    "@angular/cli": "~13.0.3",
+    "@angular/compiler-cli": "~13.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@mblabs/eslint-config": "^1.0.114",
+    "@mblabs/jest-preset": "^1.0.0",
+    "@mblabs/prettier-config": "^14.14.30",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "glob": "^7.2.0",
+    "handlebars-helpers": "^0.10.0",
+    "jest": "^27.3.1",
+    "semantic-release": "^18.0.0",
+    "ts-jest": "^27.0.7",
+    "typescript": "~4.4.3"
+  },
+  "keywords": [
+    "android",
+    "angular",
+    "ansible",
+    "ansible-playbook",
+    "archlinux",
+    "centos",
+    "chrome",
+    "debian",
+    "doctor",
+    "electron",
+    "extension",
+    "fedora",
+    "firefox",
+    "install",
+    "installdoc",
+    "installdoctor",
+    "ios",
+    "macos",
+    "mblabs",
+    "megabytelabs",
+    "molecule",
+    "playbook",
+    "professormanhattan",
+    "pwa",
+    "rxjs",
+    "ubuntu",
+    "windows"
+  ],
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "blueprint": {
     "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
     "group": "angular",
@@ -13,34 +126,12 @@
     "subgroup": "app",
     "title": "Oil Refinery ⛽ - One and Done"
   },
-  "bugs": {
-    "email": "help@megabyte.space",
-    "url": "https://gitlab.com/megabyte-labs/gas-station/-/issues"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-emoji"
-    }
-  },
-  "dependencies": {
-    "tslib": "^2.3.1"
-  },
-  "description": "An Ansible playbook that provisions your network with software from GitHub Awesome lists, developed with disaster recovery in mind ⛽🔥🤤",
-  "devDependencies": {
-    "@commitlint/config-conventional": "^15.0.0",
-    "@mblabs/eslint-config": "^1.0.112",
-    "@mblabs/prettier-config": "^14.14.30",
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "commitlint-config-gitmoji": "^2.2.5",
-    "glob": "^7.2.0",
-    "handlebars-helpers": "^0.10.0",
-    "semantic-release": "^18.0.0"
-  },
-  "engines": {
-    "node": ">=14.18.0"
-  },
   "eslintConfig": {
-    "extends": "@mblabs/eslint-config"
+    "extends": "@mblabs/eslint-config",
+    "rules": {
+      "json-schema-validator/no-invalid": "off",
+      "woke/all": "off"
+    }
   },
   "funding": [
     {
@@ -52,28 +143,22 @@
       "url": "https://www.patreon.com/ProfessorManhattan"
     }
   ],
-  "homepage": "https://megabyte.space",
-  "keywords": [
-    "ansible",
-    "ansible-playbook",
-    "archlinux",
-    "centos",
-    "debian",
-    "doctor",
-    "fedora",
-    "install",
-    "installdoc",
-    "installdoctor",
-    "macos",
-    "mblabs",
-    "megabytelabs",
-    "molecule",
-    "playbook",
-    "professormanhattan",
-    "ubuntu",
-    "windows"
-  ],
-  "license": "MIT",
+  "jest": {
+    "preset": "@mblabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
+  },
   "lint-staged": {
     "**/*": [
       "blocklint --wordlist blacklist,slave,whitelist",
@@ -95,10 +180,6 @@
     "**/*.json": [
       "task fix:json --"
     ],
-    "**/*.py": [
-      "task fix:python --",
-      "task lint:python --"
-    ],
     "**/*.sh": [
       "task fix:shell --",
       "task lint:shell --"
@@ -114,43 +195,17 @@
       "task fix:yaml --",
       "task lint:yaml --"
     ],
-    "**/*vault.yml": [
-      "task ansible:vault:lint:file --"
-    ],
     "logo.png": [
       "task image:resize -- 200 200",
       "task image:compress --"
     ]
   },
-  "name": "@installdoc/ansible-gas-station",
-  "optionalDependencies": {
-    "chalk": "^4.1.2",
-    "inquirer": "^8.2.0",
-    "signale": "^1.4.0",
-    "string-break": "^1.2.0"
-  },
   "prettier": "@mblabs/prettier-config",
-  "private": true,
-  "publishConfig": {
-    "access": "public"
-  },
   "release": {
     "branches": [
       "master",
       "next"
     ],
     "extends": "@mblabs/release-config"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/Gas-Station.git"
-  },
-  "scripts": {
-    "help": "task --list",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "bash .config/start.sh"
-  },
-  "type": "module",
-  "version": "0.0.1"
+  }
 }
