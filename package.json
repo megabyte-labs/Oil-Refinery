@@ -1,41 +1,27 @@
 {
-  "private": true,
-  "name": "@mblabs/app-oil-refinery",
-  "version": "0.0.1",
-  "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
-  "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
-  "homepage": "https://megabyte.space",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ProfessorManhattan/Oil-Refinery.git"
+  "blueprint": {
+    "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
+    "group": "angular",
+    "name": "Gas Station",
+    "overview": "Oil Refinery is an Angular base project that supports every build target imaginable",
+    "repository": {
+      "github": "https://github.com/ProfessorManhattan/Oil-Refinery",
+      "gitlab": "https://gitlab.com/megabyte-labs/templates/angular-app"
+    },
+    "slug": "oil-refinery",
+    "subgroup": "app",
+    "title": "Oil Refinery ⛽ - One and Done"
   },
   "bugs": {
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/templates/angular-app/-/issues"
-  },
-  "type": "module",
-  "main": "dist/main.js",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "ng build",
-    "help": "task --list",
-    "ng": "ng",
-    "prepare": "task common:husky",
-    "repair": "bash <(curl -sS https://install.doctor/repair)",
-    "start": "ng serve",
-    "test": "ng test",
-    "test:cov": "ng test --coverage",
-    "watch": "ng build --watch --configuration development"
   },
   "config": {
     "commitizen": {
       "path": "cz-emoji"
     }
   },
-  "typings": "dist/main.d.ts",
   "dependencies": {
     "@angular/animations": "~13.0.0",
     "@angular/common": "~13.0.0",
@@ -51,12 +37,7 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
-  "optionalDependencies": {
-    "chalk": "^4.1.2",
-    "inquirer": "^8.2.0",
-    "signale": "^1.4.0",
-    "string-break": "^1.2.0"
-  },
+  "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
   "devDependencies": {
     "@angular-builders/jest": "^13.0.0",
     "@angular-devkit/build-angular": "~13.0.3",
@@ -77,6 +58,49 @@
     "semantic-release": "^18.0.0",
     "ts-jest": "^27.0.7",
     "typescript": "~4.4.3"
+  },
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "eslintConfig": {
+    "extends": "@mblabs/eslint-config",
+    "rules": {
+      "json-schema-validator/no-invalid": "off",
+      "woke/all": "off"
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/megabytelabs"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/ProfessorManhattan"
+    }
+  ],
+  "homepage": "https://megabyte.space",
+  "jest": {
+    "preset": "@mblabs/jest-preset",
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "filename": "index.html",
+          "logoImgPath": "./.config/assets/logo-jest-report.png",
+          "openReport": true,
+          "pageTitle": "Code Coverage Report",
+          "publicPath": "./coverage"
+        }
+      ]
+    ]
   },
   "keywords": [
     "android",
@@ -107,58 +131,7 @@
     "ubuntu",
     "windows"
   ],
-  "engines": {
-    "node": ">=14.18.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "blueprint": {
-    "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
-    "group": "angular",
-    "name": "Gas Station",
-    "overview": "Oil Refinery is an Angular base project that supports every build target imaginable",
-    "repository": {
-      "github": "https://github.com/ProfessorManhattan/Oil-Refinery",
-      "gitlab": "https://gitlab.com/megabyte-labs/templates/angular-app"
-    },
-    "slug": "oil-refinery",
-    "subgroup": "app",
-    "title": "Oil Refinery ⛽ - One and Done"
-  },
-  "eslintConfig": {
-    "extends": "@mblabs/eslint-config",
-    "rules": {
-      "json-schema-validator/no-invalid": "off",
-      "woke/all": "off"
-    }
-  },
-  "funding": [
-    {
-      "type": "opencollective",
-      "url": "https://opencollective.com/megabytelabs"
-    },
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ProfessorManhattan"
-    }
-  ],
-  "jest": {
-    "preset": "@mblabs/jest-preset",
-    "reporters": [
-      "default",
-      [
-        "jest-html-reporters",
-        {
-          "filename": "index.html",
-          "logoImgPath": "./.config/assets/logo-jest-report.png",
-          "openReport": true,
-          "pageTitle": "Code Coverage Report",
-          "publicPath": "./coverage"
-        }
-      ]
-    ]
-  },
+  "license": "MIT",
   "lint-staged": {
     "**/*": [
       "blocklint --wordlist blacklist,slave,whitelist",
@@ -200,12 +173,42 @@
       "task image:compress --"
     ]
   },
+  "main": "dist/main.js",
+  "name": "@mblabs/app-oil-refinery",
+  "optionalDependencies": {
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.0",
+    "signale": "^1.4.0",
+    "string-break": "^1.2.0"
+  },
   "prettier": "@mblabs/prettier-config",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "release": {
     "branches": [
       "master",
       "next"
     ],
     "extends": "@mblabs/release-config"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProfessorManhattan/Oil-Refinery.git"
+  },
+  "scripts": {
+    "build": "ng build",
+    "help": "task --list",
+    "ng": "ng",
+    "prepare": "task common:husky",
+    "repair": "bash <(curl -sS https://install.doctor/repair)",
+    "start": "ng serve",
+    "test": "ng test",
+    "test:cov": "ng test --coverage",
+    "watch": "ng build --watch --configuration development"
+  },
+  "type": "module",
+  "typings": "dist/main.d.ts",
+  "version": "0.0.1"
 }
