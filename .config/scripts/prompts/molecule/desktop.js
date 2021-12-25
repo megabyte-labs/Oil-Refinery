@@ -56,7 +56,6 @@ async function run() {
   try {
     return execSync(`task ansible:test:molecule:virtualbox:converge:cli -- ${environment}`, { stdio: 'inherit' })
   } catch {
-    // eslint-disable-next-line no-process-exit
     return process.exit(1)
   }
 }
