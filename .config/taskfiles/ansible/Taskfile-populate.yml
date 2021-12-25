@@ -9,23 +9,34 @@ tasks:
   collection:
     deps:
       - :install:software:yq
-    env:
-      COLLECTIONS:
-        sh: yq eval '.collections' '{{.REQUIREMENTS_PATH}}'
-      REFERENCES:
-        sh: grep -Ril '{{.KEY}}' ./tasks || true
     cmds:
       - |
+        COLLECTIONS="$(yq eval '.collections' '{{.REQUIREMENTS_PATH}}')"
+        REFERENCES="$(grep -Ril '{{.KEY}}' ./tasks || true)"
         if [[ ! "$COLLECTIONS" =~ '{{.KEY}}' ]] && [ "$REFERENCES" ]; then
           yq eval -i -P '.collections = .collections + {{.VAL}}' '{{.REQUIREMENTS_PATH}}'
+          .config/log success 'Automatically added `{{.VAL}}` to {{.REQUIREMENTS_PATH}}'
         fi
       - task: :fix:yaml:dashes
         vars:
           CLI_ARGS: '{{.REQUIREMENTS_PATH}}'
-    status:
-      - '[[ "$COLLECTIONS" =~ "{{.KEY}}" ]] || [ ! "$REFERENCES" ]'
+
+  collection:force:
+    deps:
+      - :install:software:yq
+    cmds:
+      - |
+        COLLECTIONS="$(yq eval '.collections' '{{.REQUIREMENTS_PATH}}')"
+        if [[ ! "$COLLECTIONS" =~ '{{.KEY}}' ]]; then
+          yq eval -i -P '.collections = .collections + {{.VAL}}' '{{.REQUIREMENTS_PATH}}'
+          .config/log success 'Automatically added `{{.VAL}}` to {{.REQUIREMENTS_PATH}}'
+        fi
+      - task: :fix:yaml:dashes
+        vars:
+          CLI_ARGS: '{{.REQUIREMENTS_PATH}}'
 
   dependencies:
+    # @desc_when [ansible/Taskfile-populate.yml] ansible/role
     desc: 'Attempt to automatically populate `{{.META_PATH}}` and `{{.REQUIREMENTS_PATH}}`'
     summary: |
       # Automatically populate `{{.META_PATH}}` and `{{.REQUIREMENTS_PATH}}`
@@ -53,9 +64,19 @@ tasks:
             {"name": "chocolatey.chocolatey", "source": "https://galaxy.ansible.com"}
       - task: collection
         vars:
+          KEY: community.crypto
+          VAL: >-
+            {"name": "community.crypto", "source": "https://galaxy.ansible.com"}
+      - task: collection
+        vars:
           KEY: community.general
           VAL: >-
             {"name": "community.general", "source": "https://galaxy.ansible.com"}
+      - task: collection:force
+        vars:
+          KEY: google.cloud
+          VAL: >-
+            {"name": "google.cloud", "source": "https://galaxy.ansible.com"}
       - task: dependency
         vars:
           KEY: community.general.homebrew
@@ -89,16 +110,14 @@ tasks:
   dependency:
     deps:
       - :install:software:yq
-    env:
-      DEPENDENCIES:
-        sh: yq eval '.dependencies' '{{.META_PATH}}'
-      REFERENCES:
-        sh: grep -Ril '{{.KEY}}' ./tasks || true
     cmds:
       - |
+        DEPENDENCIES="$(yq eval '.dependencies' '{{.META_PATH}}')"
+        REFERENCES="$(grep -Ril '{{.KEY}}' ./tasks || true)"
         if [[ ! "$DEPENDENCIES" =~ '{{.ROLE}}' ]] && [ "$REFERENCES" ]; then
           if [[ '{{.GALAXY_NAMESPACE}}.{{.GALAXY_ROLE_NAME}}' != '{{.ROLE}}' ]]; then
             yq eval -i -P '.dependencies = .dependencies + {{.VAL}}' '{{.META_PATH}}'
+            .config/log success 'Automatically added `{{.VAL}}` to {{.META_PATH}}'
           fi
         fi
       - task: :fix:yaml:dashes
@@ -116,12 +135,11 @@ tasks:
         sh: yq eval '.galaxy_info.description' '{{.META_PATH}}'
       REFERENCE_LINK: Take a look at an [example meta/main.yml
         file](https://gitlab.com/megabyte-labs/ansible-roles/androidstudio/-/blob/master/{{.META_PATH}}).
-    env:
-      TMP:
-        sh: mktemp
     cmds:
-      - jq --arg a '{{.DESCRIPTION}}' --arg b '{{.GALAXY_ROLE_NAME}}' '.blueprint.description = $a | .blueprint.slug = $b' package.json > "$TMP"
-      - mv "$TMP" package.json
+      - |
+        TMP="$(mktemp)"
+        jq --arg a '{{.DESCRIPTION}}' --arg b '{{.GALAXY_ROLE_NAME}}' '.blueprint.description = $a | .blueprint.slug = $b' package.json > "$TMP"
+        mv "$TMP" package.json
       - '{{.NPX_HANDLE}}prettier --write package.json'
     sources:
       - meta/main.yml

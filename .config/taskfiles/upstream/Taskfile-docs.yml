@@ -35,13 +35,20 @@ tasks:
       - rm -rf {{.SHARED_FOLDER}}/.git
 
   copy:
+    cmds:
+      - rm -rf .config
+      - task: copy:before
+      - cp {{.SHARED_FOLDER}}/.gitlab-ci.yml .gitlab-ci.yml
+
+  copy:before:
     deps:
       - copy:common
       - copy:shared
-    cmds:
-      - cp {{.SHARED_FOLDER}}/.gitlab-ci.yml .gitlab-ci.yml
 
   copy:common:
+    env:
+      PATH:
+        sh: echo "$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
     cmds:
       - cp -rT ./{{.COMMON_FOLDER}}/common/ .
       - task: :common:husky:permissions
