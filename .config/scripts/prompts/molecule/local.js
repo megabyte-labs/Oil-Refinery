@@ -42,6 +42,7 @@ async function run() {
   try {
     return execSync(`TEST_PASSWORD=${sudoPass} task ansible:test:molecule:local:test`, { stdio: 'inherit' })
   } catch {
+    // eslint-disable-next-line no-process-exit
     return process.exit(1)
   }
 }

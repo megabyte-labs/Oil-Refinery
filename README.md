@@ -1,7 +1,7 @@
 <!-- ⚠️ This README has been generated from the file(s) ".config/docs/blueprint-readme-app.md" ⚠️--><div align="center">
   <center>
     <a href="https://github.com/ProfessorManhattan/Oil-Refinery">
-      <img width="148" height="148" alt="Gas Station logo" src="https://gitlab.com/megabyte-labs/templates/angular-app/-/raw/master/logo.png" />
+      <img width="148" height="148" alt="Oil Refinery logo" src="https://gitlab.com/megabyte-labs/templates/angular-app/-/raw/master/logo.png" />
     </a>
   </center>
 </div>
@@ -68,7 +68,7 @@
 
 ## Overview
 
-alternative_description. Oil Refinery is an Angular base project that supports every build target imaginable
+alternative_description. This project combines [Angular](https://angular.io/) and [Ionic](https://ionicframework.com/) with the build tools necessary to turn a single codebase into every imaginable build target. Out of the box, the project supports generating builds for web, Android, iOS, Chrome, Firefox, Opera, Windows, macOS, Linux, and even menu bar programs that live in your system tray. On top of that, it bundles some of the best build and CI/CD tools with dependencies that are installed on-demand (i.e. if you do not need a feature, the dependencies are not installed). Powering the project is a custom version of go-task that we named [Run](https://gitlab.com/megabyte-labs/go/cli/run) along with a suite of development tools that leave no stone un-turned (e.g. git hooks, automatic documentation, and _optional_ continuous updates to the build tools). This project is 🔥🔥🔥.
 
 {{ load:.assets/features.md }}
 

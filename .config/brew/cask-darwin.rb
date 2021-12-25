@@ -11,8 +11,8 @@ cask "oil-refinery" do
 
   url "https://github.com/ProfessorManhattan/app-oil-refinery/releases/download/v#{version}/oil-refinery-#{version}-darwin-#{arch}.zip",
       verified: "github.com/ProfessorManhattan/app-oil-refinery/"
-  name "Gas Station"
-  desc "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤"
+  name "Oil Refinery"
+  desc "Oil Refinery is an Angular/Ionic base project that supports every build target imaginable ⛽🔥🤤"
   homepage "https://megabyte.space"
 
   livecheck do
@@ -20,5 +20,5 @@ cask "oil-refinery" do
     strategy :github_latest
   end
 
-  app "Gas Station.app"
+  app "Oil Refinery.app"
 end

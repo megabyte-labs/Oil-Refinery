@@ -1,8 +1,8 @@
 {
   "private": false,
-  "name": "@mblabs/app-oil-refinery",
+  "name": "oil-refinery",
   "version": "0.0.1",
-  "description": "Oil Refinery is an Angular base project that supports every build target imaginable ⛽🔥🤤",
+  "description": "Oil Refinery is an Angular/Ionic base project that supports every build target imaginable ⛽🔥🤤",
   "license": "MIT",
   "author": "Brian Zalewski <brian@megabyte.space> (https://megabyte.space)",
   "homepage": "https://megabyte.space",
@@ -108,6 +108,9 @@
   "blueprint": {
     "customPackageName": "oil-refinery",
     "description": "Oil Refinery is an Angular/Ionic base project that supports every build target imaginable ⛽🔥🤤",
+    "github_id": "R_kgDOGlSGJw",
+    "gitlab_group_id": "11579735",
+    "gitlab_project_id": "31086712",
     "group": "angular",
     "name": "Oil Refinery",
     "overview": "This project combines [Angular](https://angular.io/) and [Ionic](https://ionicframework.com/) with the build tools necessary to turn a single codebase into every imaginable build target. Out of the box, the project supports generating builds for web, Android, iOS, Chrome, Firefox, Opera, Windows, macOS, Linux, and even menu bar programs that live in your system tray. On top of that, it bundles some of the best build and CI/CD tools with dependencies that are installed on-demand (i.e. if you do not need a feature, the dependencies are not installed). Powering the project is a custom version of go-task that we named [Run](https://gitlab.com/megabyte-labs/go/cli/run) along with a suite of development tools that leave no stone un-turned (e.g. git hooks, automatic documentation, and *optional* continuous updates to the build tools). This project is 🔥🔥🔥.",
@@ -117,10 +120,7 @@
     },
     "slug": "oil-refinery",
     "subgroup": "app",
-    "title": "Oil Refinery ⛽ - One and Done",
-    "github_id": "R_kgDOGlSGJw",
-    "gitlab_project_id": "31086712",
-    "gitlab_group_id": "11579735"
+    "title": "Oil Refinery ⛽ - One and Done"
   },
   "commitlint": {
     "extends": [

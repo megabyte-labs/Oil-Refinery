@@ -67,6 +67,7 @@ async function run() {
       { stdio: 'inherit' }
     )
   } catch {
+    // eslint-disable-next-line no-process-exit
     return process.exit(1)
   }
 }
