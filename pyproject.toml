@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://megabyte.space"
 documentation = "https://megabyte.space/docs/angular/app"
-keywords = ["android", "angular", "ansible", "ansible-playbook", "archlinux", "centos", "chrome", "debian", "doctor", "electron", "extension", "fedora", "firefox", "install", "installdoc", "installdoctor", "ios", "macos", "mblabs", "megabytelabs", "molecule", "playbook", "professormanhattan", "pwa", "rxjs", "ubuntu", "windows"]
+keywords = ["android", "angular", "ansible", "ansible-playbook", "archlinux", "centos", "chrome", "debian", "doctor", "electron", "extension", "fedora", "firefox", "install", "installdoc", "installdoctor", "ios", "macos", "mblabs", "megabytelabs", "molecule", "playbook", "professormanhattan", "pwa", "rxjs", "ubuntu", "washingtondc", "windows"]
 include = ["CHANGELOG.md", "LICENSE"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -48,7 +48,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7.0,<4.0.0"
+python = ">=3.10.0,<4.0.0"
 
 [tool.poetry.dev-dependencies]
 blocklint = "^0.2.3"

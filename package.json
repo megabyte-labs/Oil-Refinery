@@ -17,9 +17,15 @@
     "email": "help@megabyte.space",
     "url": "https://gitlab.com/megabyte-labs/templates/angular-app/-/issues"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "helpUrl": "https://megabyte.space/docs/contributing/commits"
+  },
   "config": {
     "commitizen": {
-      "path": "cz-emoji"
+      "path": "node_modules/cz-emoji-conventional"
     }
   },
   "dependencies": {
@@ -43,19 +49,16 @@
     "@angular-devkit/build-angular": "~13.0.3",
     "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
-    "@mblabs/eslint-config": "^1.0.114",
     "@mblabs/jest-preset": "^1.0.0",
-    "@mblabs/prettier-config": "^14.14.30",
     "@types/jest": "^27.0.3",
     "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "commitlint-config-gitmoji": "^2.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "glob": "^7.2.0",
-    "handlebars-helpers": "^0.10.0",
+    "@washingtondc/development": "^1.0.2",
+    "@washingtondc/jest": "^1.0.0",
+    "@washingtondc/prettier": "^1.0.0",
+    "@washingtondc/release": "^0.0.2",
+    "eslint-config-strict-mode": "^1.0.0",
     "jest": "^27.3.1",
-    "semantic-release": "^18.0.0",
+    "sleekfast": "^0.0.1",
     "ts-jest": "^27.0.7",
     "typescript": "~4.4.3"
   },
@@ -63,14 +66,14 @@
     "node": ">=14.18.0"
   },
   "eslintConfig": {
-    "extends": "@mblabs/eslint-config",
+    "extends": "eslint-config-strict-mode",
     "rules": {
       "json-schema-validator/no-invalid": "off",
       "woke/all": "off"
     }
   },
   "files": [
-    "dist",
+    "dist/",
     "CHANGELOG.md",
     "LICENSE",
     "README.md"
@@ -87,7 +90,7 @@
   ],
   "homepage": "https://megabyte.space",
   "jest": {
-    "preset": "@mblabs/jest-preset",
+    "preset": "@washingtondc/jest",
     "reporters": [
       "default",
       [
@@ -129,16 +132,13 @@
     "pwa",
     "rxjs",
     "ubuntu",
+    "washingtondc",
     "windows"
   ],
   "license": "MIT",
   "lint-staged": {
     "**/*": [
-      "blocklint --wordlist blacklist,slave,whitelist",
-      "check-merge-conflict",
-      "check-added-large-files",
-      "check-symlinks",
-      "destroyed-symlinks"
+      "task lint:any --"
     ],
     "**/*.(css|html|less|md|mjml|php|scss|sh|xml)": [
       "task fix:prettier --"
@@ -154,7 +154,6 @@
       "task fix:json --"
     ],
     "**/*.sh": [
-      "task fix:shell --",
       "task lint:shell --"
     ],
     "**/*.toml": [
@@ -175,14 +174,17 @@
   },
   "main": "dist/main.js",
   "name": "@mblabs/app-oil-refinery",
-  "optionalDependencies": {
-    "chalk": "^4.1.2",
-    "inquirer": "^8.2.0",
-    "signale": "^1.4.0",
-    "string-break": "^1.2.0"
+  "ntl": {
+    "descriptions": {
+      "help": "Display a list of tasks that can be run via the Taskfile.yml",
+      "prepare": "Hook, triggered by running npm install, that runs logic such as installing pre-commit hooks",
+      "repair": "Fixes basic issues in projects that are having trouble running basic commands like 'task start'",
+      "start": "Entrypoint for new developers that installs requirements and then runs 'task start'"
+    }
   },
-  "prettier": "@mblabs/prettier-config",
-  "private": true,
+  "optionalDependencies": {},
+  "prettier": "@washingtondc/prettier",
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -191,7 +193,7 @@
       "master",
       "next"
     ],
-    "extends": "@mblabs/release-config"
+    "extends": "@washingtondc/release"
   },
   "repository": {
     "type": "git",

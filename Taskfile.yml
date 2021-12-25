@@ -91,23 +91,6 @@ includes:
 tasks:
   donothing: 'true'
 
-  environment:
-    interactive: true
-    desc: Symlink to an environment in the `environments/` folder
-    summary: |
-      # Symlink an environment's contents to the root
-
-      This method is convienience method for symlinking all of the folders in
-      `environments/prod/`, for instance. You can pass the environment as a CLI
-      argument or you can use an interactive prompt.
-
-      **Example opening a prompt:**
-      `task environment`
-
-      **Example using CLI argument:**
-      `task environment -- prod`
-    cmds:
-      - task: ansible:playbook:environment
   group:exec:
     desc: Execute group commands on any group (including repositories in sub-groups)
     summary: |
@@ -245,19 +228,3 @@ tasks:
       `task start`
     cmds:
       - task: upstream:project
-  test:
-    interactive: true
-    desc: Open an interactive dialog to select and run a Molecule test
-    summary: |
-      # Test Ansible plays
-
-      This task wraps all the supported test methods for Ansible plays into a
-      convienient multi-question prompt system that supports:
-
-      1. Docker tests
-      2. Headless VirtualBox tests
-      3. VirtualBox Desktop tests which are not automatically destroyed
-      4. Running the play locally
-      5. Running the play over SSH on a remote target
-    cmds:
-      - task: ansible:test:prompt

@@ -1,4 +1,5 @@
 {
+  "SPACE": "",
   "alt_badge_style": "flat-square",
   "author": {
     "email": "brian@megabyte.space",
@@ -10,6 +11,7 @@
   "autodoc_variables_description": "",
   "badge_style": "for-the-badge",
   "build_coverage_regex": "Lines\\s*:\\s*(\\d+.?\\d*)%",
+  "commit_help_url": "https://megabyte.space/docs/contributing/commit-guidelines",
   "company": "Megabyte LLC",
   "copyright": "2020-2021",
   "docker_label_authors": "Brian Zalewski <brian@megabyte.space>",
@@ -23,15 +25,60 @@
   "email": {
     "help": "help@megabyte.space"
   },
+  "emoji_beginnings": [
+    "🚀 ",
+    "🔥👉 ",
+    "👉 ",
+    "😉 ",
+    "🆓 ",
+    "🐴 ",
+    "👀 ",
+    "🎉 ",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "emoji_endings": [
+    " 🚀",
+    " 🔥🔥🔥",
+    " 👏",
+    " 😉",
+    " 🐙",
+    " 🐴",
+    " 👀",
+    " 🎟",
+    " 🎉🎉",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "github_prefix": "<i></i>",
   "gitlab_pipelines": [
     {
       "active": true,
       "cron": "0 12 * * 1",
-      "description": "Weekly test",
+      "description": "Weekly Test",
       "ref": "master",
       "variable": {
         "WEEKLY_TEST": true
+      }
+    },
+    {
+      "active": true,
+      "cron": "0 5 1 * *",
+      "description": "Monthly Repository Update",
+      "ref": "synchronize",
+      "variable": {
+        "REPOSITORY_UPDATE": true
       }
     }
   ],
@@ -109,8 +156,8 @@
       "cryptocurrency_path": "megabyte-labs/cryptocurrency",
       "docker_compose": "https://gitlab.com/megabyte-labs/docker-compose",
       "docker_compose_path": "megabyte-labs/docker-compose",
-      "dockerfile": "https://gitlab.com/megabyte-labs/dockerfile",
-      "dockerfile_path": "megabyte-labs/dockerfile",
+      "dockerfile": "https://gitlab.com/megabyte-labs/docker",
+      "dockerfile_path": "megabyte-labs/docker",
       "documentation": "https://gitlab.com/megabyte-labs/documentation",
       "documentation_path": "megabyte-labs/documentation",
       "kubernetes": "https://gitlab.com/megabyte-labs/kubernetes",
@@ -120,6 +167,7 @@
       "packer": "https://gitlab.com/megabyte-labs/packer",
       "packer_path": "megabyte-labs/packer",
       "python": "https://gitlab.com/megabyte-labs/python",
+      "python_cli_path": "megabyte-labs/python/cli",
       "python_path": "megabyte-labs/python",
       "software": "https://gitlab.com/megabyte-labs/software",
       "software_path": "megabyte-labs/software",
@@ -168,7 +216,7 @@
     "project": {
       "assets": "https://gitlab.com/megabyte-labs/assets/-/raw/master",
       "autodoc": "https://github.com/AndresBott/ansible-autodoc",
-      "playbooks": "https://gitlab.com/InstallDoc/ansible-playbook-boilerplate",
+      "playbooks": "https://github.com/ProfessorManhattan/Gas-Station",
       "wrangler": "https://gitlab.com/megabyte-labs/wrangler"
     }
   },
