@@ -1,0 +1,28 @@
+{
+  "implicitDependencies": ["oil-refinery"],
+  "projectType": "application",
+  "root": "packages/oil-refinery-e2e",
+  "sourceRoot": "packages/oil-refinery-e2e/src",
+  "tags": [],
+  "targets": {
+    "e2e": {
+      "configurations": {
+        "production": {
+          "devServerTarget": "oil-refinery:serve:production"
+        }
+      },
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/oil-refinery-e2e/cypress.json",
+        "devServerTarget": "oil-refinery:serve:development"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/oil-refinery-e2e/**/*.{js,ts}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

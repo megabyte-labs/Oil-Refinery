@@ -9,5 +9,5 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  // eslint-disable-next-line no-console
-  .catch((error: unknown) => console.error(error))
+  // eslint-disable-next-line no-console, @typescript-eslint/no-explicit-any
+  .catch((error: any) => console.error(error))

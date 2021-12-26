@@ -1,0 +1,221 @@
+{
+  "prefix": "oil-refinery",
+  "projectType": "application",
+  "root": "packages/oil-refinery",
+  "sourceRoot": "packages/oil-refinery/src",
+  "tags": [],
+  "targets": {
+    "add": {
+      "configurations": {
+        "android": {
+          "cmd": "add android"
+        },
+        "ios": {
+          "cmd": "add ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "add"
+      }
+    },
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "packages/oil-refinery/src/environments/environment.ts",
+              "with": "packages/oil-refinery/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "packages/oil-refinery/src/assets",
+          {
+            "glob": "**/*.svg",
+            "input": "node_modules/ionicons/dist/ionicons/svg",
+            "output": "./svg"
+          }
+        ],
+        "index": "packages/oil-refinery/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "packages/oil-refinery/src/main.ts",
+        "outputPath": "dist/packages/oil-refinery",
+        "polyfills": "packages/oil-refinery/src/polyfills.ts",
+        "scripts": [],
+        "styles": [
+          "packages/oil-refinery/src/styles.scss",
+          {
+            "input": "packages/oil-refinery/src/theme/variables.scss"
+          }
+        ],
+        "tsConfig": "packages/oil-refinery/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "build-storybook": {
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
+      "executor": "@nrwl/storybook:build",
+      "options": {
+        "config": {
+          "configFolder": "packages/oil-refinery/.storybook"
+        },
+        "outputPath": "dist/storybook/oil-refinery",
+        "uiFramework": "@storybook/angular"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "cap": {
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "--help"
+      }
+    },
+    "copy": {
+      "configurations": {
+        "android": {
+          "cmd": "copy android"
+        },
+        "ios": {
+          "cmd": "copy ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "copy"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "oil-refinery:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/oil-refinery/src/**/*.ts", "packages/oil-refinery/src/**/*.html"]
+      }
+    },
+    "open": {
+      "configurations": {
+        "android": {
+          "cmd": "open android"
+        },
+        "ios": {
+          "cmd": "open ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "open"
+      }
+    },
+    "run": {
+      "configurations": {
+        "android": {
+          "cmd": "run android"
+        },
+        "ios": {
+          "cmd": "run ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "run"
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "oil-refinery:build:development"
+        },
+        "production": {
+          "browserTarget": "oil-refinery:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server"
+    },
+    "storybook": {
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "config": {
+          "configFolder": "packages/oil-refinery/.storybook"
+        },
+        "port": 4400,
+        "uiFramework": "@storybook/angular"
+      }
+    },
+    "sync": {
+      "configurations": {
+        "android": {
+          "cmd": "sync android"
+        },
+        "ios": {
+          "cmd": "sync ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "sync"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "packages/oil-refinery/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/packages/oil-refinery"]
+    },
+    "update": {
+      "configurations": {
+        "android": {
+          "cmd": "update android"
+        },
+        "ios": {
+          "cmd": "update ios"
+        }
+      },
+      "executor": "@nxtend/capacitor:cap",
+      "options": {
+        "cmd": "update"
+      }
+    }
+  }
+}

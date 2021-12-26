@@ -1,0 +1,7 @@
+{
+  "integrations": {
+    "capacitor": {}
+  },
+  "name": "oil-refinery",
+  "type": "angular"
+}

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "hydroelectric-dam": "packages/hydroelectric-dam",
+    "oil-refinery": "packages/oil-refinery",
+    "oil-refinery-e2e": "packages/oil-refinery-e2e"
+  },
+  "version": 2
+}

@@ -1,0 +1,52 @@
+{
+  "projectType": "application",
+  "root": "packages/hydroelectric-dam",
+  "sourceRoot": "packages/hydroelectric-dam/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "production": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "packages/hydroelectric-dam/src/environments/environment.ts",
+              "with": "packages/hydroelectric-dam/src/environments/environment.prod.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        }
+      },
+      "executor": "@nrwl/node:build",
+      "options": {
+        "assets": ["packages/hydroelectric-dam/src/assets"],
+        "main": "packages/hydroelectric-dam/src/main.ts",
+        "outputPath": "dist/packages/hydroelectric-dam",
+        "tsConfig": "packages/hydroelectric-dam/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/hydroelectric-dam/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve": {
+      "executor": "@nrwl/node:execute",
+      "options": {
+        "buildTarget": "hydroelectric-dam:build"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "packages/hydroelectric-dam/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/packages/hydroelectric-dam"]
+    }
+  }
+}

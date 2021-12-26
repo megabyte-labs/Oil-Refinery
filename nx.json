@@ -1,0 +1,35 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "oil-refinery",
+  "extends": "@nrwl/workspace/presets/core.json",
+  "generators": {
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    }
+  },
+  "npmScope": "oil-refinery",
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "accessToken": "YjE2NDVhNzUtYWYxYi00YjI3LTg2MTAtYjdlMDk5NjVkODQzfHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      },
+      "runner": "@nrwl/nx-cloud"
+    }
+  }
+}

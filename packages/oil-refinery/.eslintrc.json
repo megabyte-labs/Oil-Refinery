@@ -1,0 +1,41 @@
+{
+  "extends": ["../../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "overrides": [
+    {
+      "extends": ["plugin:@nrwl/nx/angular", "plugin:@angular-eslint/template/process-inline-templates"],
+      "files": ["*.ts"],
+      "rules": {
+        "@angular-eslint/component-class-suffix": [
+          "error",
+          {
+            "suffixes": ["Page", "Component"]
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "oil-refinery",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "oilRefinery",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@angular-eslint/no-empty-lifecycle-method": 0,
+        "@typescript-eslint/no-empty-function": 0
+      }
+    },
+    {
+      "extends": ["plugin:@nrwl/nx/angular-template"],
+      "files": ["*.html"],
+      "rules": {}
+    }
+  ]
+}
