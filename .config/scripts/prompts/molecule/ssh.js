@@ -21,7 +21,7 @@ async function promptForSSHDetails() {
       type: 'input'
     },
     {
-      default: 'ansible',
+      default: 'root',
       message: 'What is the username of a user that has both sudo and SSH privileges?',
       name: 'user',
       type: 'input'
@@ -61,8 +61,10 @@ async function run() {
   // eslint-disable-next-line functional/no-try-statement
   try {
     return execSync(
-      `TEST_HOST=${details.host} TEST_PASSWORD=${details.password} TEST_BECOME_PASSWORD=${details.password}
-      TEST_PORT=${details.port} TEST_SSH_USER=${details.user} TEST_USER=${details.user}
+      // eslint-disable-next-line no-secrets/no-secrets
+      `ANSIBLE_ENABLE_TASK_DEBUGGER=true TEST_PASSWORD=${details.password} TEST_BECOME_PASSWORD=${details.password} \
+      TEST_PORT=${details.port} TEST_SSH_USER=${details.user} TEST_USER=${details.user} poetry run \
+      TEST_HOST=${details.host} \
       task ansible:test:molecule:ssh:cli`,
       { stdio: 'inherit' }
     )
